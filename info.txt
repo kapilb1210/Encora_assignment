@@ -1,0 +1,23 @@
+The watcher executable takes config.ini file as input.
+Config file contains the directory path. 
+
+read_config() ==> read config file and set the directory path in g_directories_to_monitor variable.
+monitor_directory() ==> It used inotity system library and monitor the directory and capture the interrupt.
+
+CLogger class ==> It allows only one object to be initailized using singelton desing pattern and write function will allow to write in history.log file
+
+
+Future Implementation:
+1. Multiple files can be monitored using select and queue.
+2. Thread based implementation shall be done where 
+	one thread monitor file and 
+	another will read config file in another thread
+3. DEBUG TRACING shall be added. 
+4. File shall be created on day basis.
+
+Result::
+OSP20KSOVF sde kapil>tail 2021-05-31_history.log
+2021-05-31.12:07:54 11127 ****Process Restarted.**** Monitoring directory ::/osp/sde/try
+2021-05-31.12:08:06 11127 The file b was deleted.
+2021-05-31.12:08:06 11127 The file m was deleted.
+2021-05-31.12:08:06 11127 The file l was deleted.
